@@ -20,12 +20,6 @@ require_once($CFG->dirroot . '/mod/assign/locallib.php');
  */
 class mod_scheduler_renderer extends plugin_renderer_base {
 
-    public function __construct($page = null, $target = null) {
-        if ($page) {
-            parent::__construct($page, $target);
-        }
-    }
-
     /**
      * Format a date in the current user's timezone.
      * @param int $date a timestamp
@@ -361,6 +355,18 @@ class mod_scheduler_renderer extends plugin_renderer_base {
         );
 
         return $this->tabtree($level1, $selected, $inactive);
+    }
+
+    /**
+     * Render an action message (such as "1 slot added").
+     *
+     * @param string $message the message
+     * @param string $type type of the message
+     * @return string the rendered message
+     */
+    public function action_message($message, $type = 'success') {
+        $classes = 'actionmessage '.$type;
+        return html_writer::div($message, $classes);
     }
 
     /**
@@ -805,11 +811,13 @@ class mod_scheduler_renderer extends plugin_renderer_base {
             } else {
                 $actions .= $this->pix_icon($groupicon, get_string($groupalt, 'scheduler'));
             }
+/* Remove the revoke option from the display David Markwell 2018-04-25 Patched for SNOMED International
 
             if ($slot->editable && $slot->isappointed) {
                 $url = new moodle_url($slotman->actionurl, array('what' => 'revokeall', 'slotid' => $slot->slotid));
                 $actions .= $this->action_icon($url, new pix_icon('s/no', get_string('revoke', 'scheduler')));
             }
+*/
 
             if ($slot->exclusivity > 1) {
                 $actions .= ' ('.$slot->exclusivity.')';
