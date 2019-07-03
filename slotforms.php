@@ -146,7 +146,8 @@ abstract class scheduler_slotform_base extends moodleform {
 
         // Check duration for valid range.
         if ($this->hasduration) {
-            $limits = array('min' => 1, 'max' => 24 * 60);
+            /* SNOMED International Modified to allow multiday slots */
+            $limits = array('min' => 1, 'max' => 24 * 60 * 31);
             if ($data['duration'] < $limits['min'] || $data['duration'] > $limits['max']) {
                 $errors['durationgroup'] = get_string('durationrange', 'scheduler', $limits);
             }

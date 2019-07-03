@@ -15,7 +15,7 @@ defined('MOODLE_INTERNAL') || die();
  */
 
 $plugin->component = 'mod_scheduler'; // Full name of the plugin (used for diagnostics).
-$plugin->version   = 2018112800;      // SNOMED Version - The current module version (Date: YYYYMMDDXX).
-$plugin->release   = '3.x dev - SNOMED No Revoke Mod';       // Human-friendly version name.
+$plugin->version   = 2019070300;      // SNOMED Version - The current module version (Date: YYYYMMDDXX).
+$plugin->release   = '3.x dev - SNOMED No Revoke (renderer.php) and Multiday (slotforms.php) Mod';       // Human-friendly version name.
 $plugin->requires  = 2017051200;      // Requires Moodle 3.3.
 $plugin->maturity  = MATURITY_ALPHA;  // Alpha development code - not for production sites!
