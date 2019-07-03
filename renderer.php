@@ -69,7 +69,16 @@ class mod_scheduler_renderer extends plugin_renderer_base {
         $a->date = self::userdate($slotdate);
         $a->starttime = self::usertime($slotdate);
         $a->shortdatetime = userdate($slotdate, $shortformat);
-        $a->endtime = self::usertime($slotdate + $duration * MINSECS);
+        /* SNOMED International added option for multiday slot duration replacing
+            $a->endtime = self::usertime($slotdate + $duration * MINSECS);
+         with ... */
+        if ($duration<1440) {
+            $a->endtime = self::usertime($slotdate + $duration * MINSECS);
+            }
+        else {
+            $a->endtime = userdate($slotdate + $duration * MINSECS, $shortformat);
+        }
+
         $a->duration = $duration;
 
         return $a;
