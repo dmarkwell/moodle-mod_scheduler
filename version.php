@@ -4,18 +4,20 @@
  * Version information for mod/scheduler
  *
  * @package    mod_scheduler
- * @copyright  2016 Henning Bostelmann and others (see README.txt)
+ * @copyright  2018 Henning Bostelmann and others (see README.txt)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 /*
- * This is the development branch (master) of the scheduler module.
+ * This is the development branch (snomed) of the scheduler module.
  */
 
 $plugin->component = 'mod_scheduler'; // Full name of the plugin (used for diagnostics).
-$plugin->version   = 2019070301;      // SNOMED Version - The current module version (Date: YYYYMMDDXX).
-$plugin->release   = '3.x dev - SNOMED No Revoke (renderer.php) and Multiday (slotforms.php / renderer.php ) Mod';       // Human-friendly version name.
-$plugin->requires  = 2017051200;      // Requires Moodle 3.3.
-$plugin->maturity  = MATURITY_ALPHA;  // Alpha development code - not for production sites!
+
+$plugin->version   = 2019070900;      // SNOMED Version - The current module version (Date: YYYYMMDDXX).
+$plugin->release   = '3.5.1 SI - No Revoke and Multiday mods'; // Human-friendly version name.
+// No Revoke (renderer.php) Multiday (slotforms.php / renderer.php )
+$plugin->requires  = 2018051700;      // Requires Moodle 3.5.
+$plugin->maturity  = MATURITY_STABLE; // Stable release
